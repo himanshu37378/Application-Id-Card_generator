@@ -392,6 +392,7 @@ hr.new2 {
     margin-top: -60px;
 }
 .card-body {
+    display: flex;
     align-items: center;
 }
 
@@ -402,21 +403,22 @@ hr.new2 {
   <body>
 
 
-
-  <br>
-
-
+  <div>
+<img src= "assets/images/logo.png" width="100%"/>
+</div>
  
 
-  <div class="row align-items-center" style="margin: 150px 150px 150px 150px">
+  <div class="row align-items-center" style="margin: 50px 150px 150px 150px">
   <div class="col">
       <div class="card">
           <div class="card-header" >
               Here is your Id Card
           </div>
-        <div class="card-body align-items-center" id="mycard">
+        <div class="card-body align-items-center" id="">
+            <div id = "mycard">
           <?php echo $html ;
                 echo '<img class = "qr-code" src="' . $PNG_TEMP_DIR . basename($filename) . '" />'; ?>
+                </div>
 </div>
              
 

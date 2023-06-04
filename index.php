@@ -1,7 +1,4 @@
 <?php 
-
-
-
         $notfound = false;
         include 'config.php';
         $html = '';
@@ -400,9 +397,11 @@ hr.new2 {
 
 
 
-  <br>
+<div>
+<img src= "assets/images/logo.png" width="100%"/>
+</div>
 
-<div class="row align-items-center" style="margin: 250px 250px 250px 250px">
+<div class="row align-items-center" style="margin: 150px 250px 250px 250px">
   <div class="col">
     <div class="card jumbotron">
       <div class="card-body">
