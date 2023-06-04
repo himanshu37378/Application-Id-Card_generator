@@ -402,8 +402,8 @@ hr.new2 {
 
   <br>
 
-<div class="row" style="margin: 0px 20px 5px 20px">
-  <div class="col-sm-6">
+<div class="row align-items-center" style="margin: 250px 250px 250px 250px">
+  <div class="col">
     <div class="card jumbotron">
       <div class="card-body">
         <form class="form" method="POST" action="id-card.php">.
@@ -423,22 +423,22 @@ hr.new2 {
           <div class="card-header" >
               Here is your Id Card
           </div>
-        <div class="card-body" id="mycard">
-          <?php echo $html ;
-                echo '<img class = "qr-code" src="' . $PNG_TEMP_DIR . basename($filename) . '" />'; ?>
-</div>
+        <div class="card-body" id="mycard">-->
+          <!-- <?php echo $html ;
+                echo '<img class = "qr-code" src="' . $PNG_TEMP_DIR . basename($filename) . '" />'; ?>  -->
+<!-- </div>
              
 
         </div>  
         </div>    
-        </div> 
+        </div>  -->
 
-       
+<!--        
 <button id="demo" class="downloadtable btn btn-primary" onclick="downloadtable()"> Download Id Card</button>
+ -->
 
 
 
-  </div> -->
 
 
     <!-- Optional JavaScript -->

@@ -391,6 +391,9 @@ hr.new2 {
 .qr-code {
     margin-top: -60px;
 }
+.card-body {
+    align-items: center;
+}
 
 
 </style>
@@ -405,12 +408,13 @@ hr.new2 {
 
  
 
-  <div class="col-sm-6">
+  <div class="row align-items-center" style="margin: 150px 150px 150px 150px">
+  <div class="col">
       <div class="card">
           <div class="card-header" >
               Here is your Id Card
           </div>
-        <div class="card-body" id="mycard">
+        <div class="card-body align-items-center" id="mycard">
           <?php echo $html ;
                 echo '<img class = "qr-code" src="' . $PNG_TEMP_DIR . basename($filename) . '" />'; ?>
 </div>
