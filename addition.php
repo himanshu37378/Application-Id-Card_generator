@@ -39,6 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 else{
     $name = $_POST["name"];
     $crn = $_POST["crn"];
+    $sno = $_POST["sno"];
     $urn = $_POST["urn"];
     $fname = $_POST['fname'];
     $exp_date = $_POST['exp_date'];
@@ -71,7 +72,7 @@ else{
               echo "Possible file upload attack!\n";
           }
   // Sql query to be executed
-  $sql = "INSERT INTO `cards`(`name`, `fname`, `program`, `email`, `phone`, `address`, `crn`, `urn`, `exp_date`, `image`) VALUES ('$name','$fname','$program','$email','$phone','$address', '$crn', '$urn', '$exp_date','$uploadfile')"; 
+  $sql = "INSERT INTO `cards`(`name`, `fname`, `program`, `email`, `phone`, `address`, `crn`, `urn`, `sno`, `exp_date`, `image`) VALUES ('$name','$fname','$program','$email','$phone','$address', '$crn', '$urn', '$sno', '$exp_date','$uploadfile')"; 
 
   // $sql = "INSERT INTO `cards` (`name`, `id_no`) VALUES ('$name', '$id_no')";
   $result = mysqli_query($conn, $sql);
@@ -243,6 +244,10 @@ else{
     </div>
       
       <div class="form-row">
+      <div class="form-group col-md-3">
+          <label for="id_no">Serial Number</label>
+          <input class="form-control" id="sno" name="sno" ></input>
+        </div>
         <div class="form-group col-md-3">
           <label for="id_no">Class roll number</label>
           <input class="form-control" id="crn" name="crn" ></input>
