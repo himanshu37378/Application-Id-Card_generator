@@ -160,21 +160,23 @@
   <body>
 
 
-
+<!-- <div id = "preloader" class = "wrapper"></div> -->
 <div>
 <img src= "assets/images/logo.png" width="100%"/>
 </div>
-
-<div class="row align-items-center" style="margin: 150px 250px 250px 250px">
-  <div class="col">
-    <div class="card jumbotron">
+<div style ="margin-top:2vh; text-align:center">
+<h1> Get your Id'Card </h1>
+</div>
+<div class="row align-items-center" style="margin: ">
+  <div class="col" style="padding:5%">
+    <div class="card jumbotron" style="margin-top : 6vh;">
       <div class="card-body">
-        <form class="form" method="POST" action="id-card.php">.
+        <form class="form" method="POST" action="id-card.php">
         <label for="exampleInputEmail1">University Roll Number</label>
         <input class="form-control mr-sm-2" type="search" placeholder="Enter University Roll Number" name="urn">
-        <small id="emailHelp" class="form-text text-muted">Every student's should have unique URN</small>
+        <small id="emailHelp" class="form-text text-muted" style = "margin-top:2vh">Every student's should have unique URN</small>
         <br>
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit" name="search">Generate</button>
+        <button class="btn btn-outline-primary btn-block my-2 my-sm-0" type="submit" name="search">Generate</button>
         </form>
       </div>
     </div>
@@ -245,6 +247,18 @@
 
 
 </script>
+
+<script>
+    const wrapper = document.getElementById('wrapper');
+    window.addEvenListener('load', () => {
+        wrapper.style.opacity = '0';
+
+        setTimeout(() => {
+            wrapper.style.display = 'none';
+        }, 500);
+    })
+    </script>
+
   </body>
 
 </html>

@@ -7,7 +7,7 @@ import mysql.connector
 mydb = mysql.connector.connect(
     host = "localhost",
     port = 4306,
-    user="hello",
+    user="root",
     passwd="",
     database="id_card"
 )
@@ -23,7 +23,7 @@ print(output_list)
 
 #img = cv2.imread('1.png')
 cap = cv2.VideoCapture(0)
-cap.set(3,640)
+cap.set(3,440)
 cap.set(4,480)
 
 # with open('myDataFile.text') as f:
@@ -37,29 +37,41 @@ while True:
         # print(myData)
 
         myDataList = myData.split()
-        
-        # print(myDataList)
-        # print(str("('" + myDataList[4] + "',)"))
-
         try:
-            if str("('" + myDataList[4] + "',)") in output_list:
+            uurn = myDataList[4]
+            scan ="SELECT scans FROM cards WHERE urn = %s"
+            mycursor.execute(scan, (uurn,))
+            hey = mycursor.fetchall()
+            hey = str(hey).strip('[](),')
+            print(hey)
+            # print(str("('" + myDataList[4] + "',)"))
+            scancount = int(hey)
+
+        
+            urnst = str("('" + myDataList[4] + "',)")
+            if urnst in output_list:
                 myOutput = 'Authorized'
                 myColor = (0,255,0)
-        
+                scancount = scancount + 1
+                update = "UPDATE cards SET scans = %s WHERE urn = %s"
+                mycursor.execute(update, (scancount,uurn,))
+
         # elif myData in output_list:
         #     myOutput = 'Un-Authorized'
         #     myColor = (0, 0, 255)
 
         except:
             myOutput = 'Un-Authorized'
+            scancount = 0
             myColor = (0, 0, 255)
 
         pts = np.array([barcode.polygon],np.int32)
         pts = pts.reshape((-1,1,2))
         cv2.polylines(img,[pts],True,myColor,5)
         pts2 = barcode.rect
-        cv2.putText(img,myOutput,(pts2[0],pts2[1]),cv2.FONT_HERSHEY_SIMPLEX,
+        cv2.putText(img,myOutput+ ":-" + str(scancount),(pts2[0],pts2[1]),cv2.FONT_HERSHEY_SIMPLEX,
                     0.9,myColor,2)
 
     cv2.imshow('Result',img)
-    cv2.waitKey(1)
+    cv2.waitKey(1000)
+    

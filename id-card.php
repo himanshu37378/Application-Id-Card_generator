@@ -154,7 +154,7 @@
 
 
 
-<link rel = "Stylesheet" href= "style.css">
+<link rel = "stylesheet" href= "style.css">
 <style>
     .card-body {
      display: flex;
@@ -167,17 +167,17 @@
 
 
   <div>
-<img src= "assets/images/logo.png" width="100%"/>
+<img src= "assets/images/logo.png" width="100%" />
 </div>
  
 
-  <div class="row align-items-center" style="margin: 50px 150px 150px 150px">
+  <div class="row align-items-center" style="margin:">
   <div class="col">
       <div class="card">
           <div class="card-header" >
-              Here is your Id Card
+              <h3 style = "text-align: center;">Here is your Id Card</h3>
           </div>
-        <div class="card-body align-items-center" id="">
+        <div class="card-body align-items-center" id="" style = "rotate : 90deg; margin-top: 4vh;">
             <div id = "mycard">
           <?php echo $html ;
                 echo '<img class = "qr-code" src="' . $PNG_TEMP_DIR . basename($filename) . '" />'; ?>
@@ -190,11 +190,16 @@
         </div> 
 
        
-<button id="demo" class="downloadtable btn btn-primary" onclick="downloadtable()"> Download Id Card</button>
+<button id="demo" class="downloadtable btn btn-primary" onclick="downloadtable()" style = "margin-top:40vh;"> Download Id Card</button>
 
 
 
   </div>
+<div>
+    <br>
+
+
+    </div>
 
 
     <!-- Optional JavaScript -->

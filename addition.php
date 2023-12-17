@@ -1,7 +1,7 @@
 
 <?php  
 
-// Connect to the Database 
+// Connect to the data base in this project 
 include('config.php');
 
 $insert = false;
@@ -21,12 +21,12 @@ if(isset($_GET['delete'])){
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (isset( $_POST['urnEdit'])){
-      // Update the record
+      // Update the record in the sql database
         $urn = $_POST["urnEdit"];
         $name = $_POST["nameEdit"];
         $crn = $_POST["crnEdit"];
 
-      // Sql query to be executed
+      // Sql query to be executed to update the changes 
       $sql = "UPDATE `cards` SET `name` = '$name' , `crn` = '$crn' WHERE `cards`.`urn` = $urn";
       $result = mysqli_query($conn, $sql);
       if($result){
@@ -201,7 +201,7 @@ else{
   </div>";
   }
   ?>
-
+<!-- <div id = "preloader" class = "wrapper"></div> -->
   <div class="container my-4">
   <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
   <i class="fa fa-plus"></i> Add New Card
@@ -356,6 +356,19 @@ else{
       })
     })
   </script>
+
+<script>
+    const wrapper = document.getElementById('wrapper');
+    window.addEvenListener('load', () => {
+        wrapper.style.opacity = '0';
+
+        setTimeout(() => {
+            wrapper.style.display = 'none';
+        }, 500);
+    })
+    </script>
+
+
 </body>
 
 </html>
